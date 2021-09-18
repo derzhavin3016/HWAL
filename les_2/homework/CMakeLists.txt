@@ -16,8 +16,9 @@ set(WARN_OPTIONS
   -Wunreachable-code)
 
 add_executable(A authomata.cc)
+add_executable(B symdiff.cc)
 
-set(TARGETS A)
+set(TARGETS A B)
 
 foreach(TARGET ${TARGETS})
   target_compile_features(${TARGET} PRIVATE cxx_std_14)
