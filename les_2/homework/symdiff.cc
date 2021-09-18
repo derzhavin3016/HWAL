@@ -8,15 +8,19 @@ class set
 {
 private:
   using T = uint32_t;
-  enum { CH_SIZE = 8 * sizeof(T) };
+  enum
+  {
+    CH_SIZE = 8 * sizeof(T)
+  };
 
   std::vector<T> chunks;
+
 public:
-  set( size_t size ) : chunks(size)
+  set(size_t size) : chunks(size)
   {
   }
 
-  void insert( size_t num )
+  void insert(size_t num)
   {
     --num;
     size_t ch_num = num / CH_SIZE,
@@ -26,7 +30,7 @@ public:
     std::cout << std::bitset<CH_SIZE>(chunks[ch_num]) << std::endl;
   }
 
-  bool in( size_t num ) const
+  bool in(size_t num) const
   {
     --num;
     size_t ch_num = num / CH_SIZE,
@@ -35,14 +39,14 @@ public:
     return (chunks[ch_num] >> ch_pos) & 1u;
   }
 
-  void symd( const set &that )
+  void symd(const set &that)
   {
     size_t min_sz = std::min(that.chunks.size(), chunks.size());
     for (size_t i = 0; i < min_sz; ++i)
       chunks[i] ^= that.chunks[i];
   }
 
-  std::ostream &out( std::ostream &ost ) const
+  std::ostream &out(std::ostream &ost) const
   {
     for (size_t i = 1; i <= MAXNUM; ++i)
       if (in(i))
@@ -53,15 +57,16 @@ public:
   }
 
   ~set()
-  {}
+  {
+  }
 };
 
-std::ostream &operator <<( std::ostream &ost, const set &s )
+std::ostream &operator<<(std::ostream &ost, const set &s)
 {
   return s.out(ost);
 }
 
-set operator ^( const set &lhs, const set &rhs )
+set operator^(const set &lhs, const set &rhs)
 {
   set tmp{lhs};
   tmp.symd(rhs);
@@ -71,7 +76,7 @@ set operator ^( const set &lhs, const set &rhs )
 
 constexpr size_t set_sz = 625;
 
-void set_inp( std::istream &ist, set &s )
+void set_inp(std::istream &ist, set &s)
 {
   while (1)
   {
