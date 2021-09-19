@@ -18,9 +18,10 @@ set(WARN_OPTIONS
 add_executable(A authomata.cc)
 add_executable(B symdiff.cc)
 add_executable(C inter.cc)
+add_executable(D perm.cc)
 
 
-set(TARGETS A B)
+set(TARGETS A B C D)
 
 foreach(TARGET ${TARGETS})
   target_compile_features(${TARGET} PRIVATE cxx_std_14)
