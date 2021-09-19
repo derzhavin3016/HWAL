@@ -25,9 +25,9 @@ public:
     --num;
     size_t ch_num = num / CH_SIZE,
            ch_pos = num % CH_SIZE;
-    std::cout << ch_num << " " << ch_pos << std::endl;
+    //std::cout << ch_num << " " << ch_pos << std::endl;
     chunks[ch_num] |= (1u << ch_pos);
-    std::cout << std::bitset<CH_SIZE>(chunks[ch_num]) << std::endl;
+    //std::cout << std::bitset<CH_SIZE>(chunks[ch_num]) << std::endl;
   }
 
   bool in(size_t num) const

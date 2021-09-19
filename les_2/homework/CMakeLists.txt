@@ -17,6 +17,8 @@ set(WARN_OPTIONS
 
 add_executable(A authomata.cc)
 add_executable(B symdiff.cc)
+add_executable(C inter.cc)
+
 
 set(TARGETS A B)
 
