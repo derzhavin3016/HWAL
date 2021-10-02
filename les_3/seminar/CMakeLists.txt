@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(sem_2_hw)
+project(sem_2)
 
 # option for debug (debug info)
 set(PR_DEBUG_OPTIONS -g)
@@ -15,11 +15,13 @@ set(WARN_OPTIONS
   -Wno-old-style-cast -Waggressive-loop-optimizations
   -Wunreachable-code)
 
-set(TARGETS authomata symdiff inter perm seq)
+add_executable(money money.cc)
+add_executable(cover cover.cc)
+
+set(TARGETS money cover)
 
 foreach(TARGET ${TARGETS})
-  add_executable(${TARGET} ${TARGET}.cc)
-  target_compile_features(${TARGET} PRIVATE cxx_std_17)
+  target_compile_features(${TARGET} PRIVATE cxx_std_14)
   target_compile_options(${TARGET} PRIVATE ${WARN_OPTIONS})
 
   target_compile_options(${TARGET} PRIVATE "$<$<CONFIG:DEBUG>:${PR_DEBUG_OPTIONS}>")
