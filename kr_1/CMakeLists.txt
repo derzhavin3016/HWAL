@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(sem_2_hw)
+project(kr_1)
 
 # option for debug (debug info)
 set(PR_DEBUG_OPTIONS -g)
@@ -15,7 +15,8 @@ set(WARN_OPTIONS
   -Wno-old-style-cast -Waggressive-loop-optimizations
   -Wunreachable-code)
 
-set(TARGETS authomata symdiff inter perm seq subset)
+
+set(TARGETS A B)
 
 foreach(TARGET ${TARGETS})
   add_executable(${TARGET} ${TARGET}.cc)
