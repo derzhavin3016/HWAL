@@ -16,7 +16,7 @@ set(WARN_OPTIONS
   -Wunreachable-code)
 
 
-set(TARGETS A B)
+set(TARGETS A B C D)
 
 foreach(TARGET ${TARGETS})
   add_executable(${TARGET} ${TARGET}.cc)
